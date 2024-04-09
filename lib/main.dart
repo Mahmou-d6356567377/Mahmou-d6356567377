@@ -10,10 +10,10 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData(
-      brightness: Brightness.dark
-    );
+   
     return  MaterialApp(
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       home: const NotesView(),
     );
   }
