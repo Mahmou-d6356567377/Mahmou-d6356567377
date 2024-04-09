@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/Views/NotesView.dart';
 
 void main() {
   runApp(const NoteApp());
@@ -9,6 +10,11 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    ThemeData(
+      brightness: Brightness.dark
+    );
+    return  MaterialApp(
+      home: const NotesView(),
+    );
   }
 }
