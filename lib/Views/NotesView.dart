@@ -4,6 +4,7 @@ import 'package:noteapp/Widgets/NotesViewBody.dart';
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +14,11 @@ class NotesView extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
        body: NotesViewBody(),
+       floatingActionButton: FloatingActionButton(onPressed: (){},
+       child: Icon(Icons.add),
+       mini: true,
+       
+       ),
       ),
     );
   }
