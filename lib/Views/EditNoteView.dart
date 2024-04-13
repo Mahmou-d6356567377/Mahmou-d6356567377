@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/Widgets/NotesViewBody.dart';
+import 'package:noteapp/Widgets/CustomAppBar.dart';
 
 class EditNoteView extends StatelessWidget {
   const EditNoteView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(leading: IconButton(onPressed: (){
-        Navigator.pop(context);
-      }, icon: Icon(Icons.arrow_back,color: Colors.white,)),),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          color: Colors.black,
+    return const Scaffold(
+      
+      body:Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [ 
+          SizedBox(height: 30,),
+            CustomAppBar(title: 'Edit', icon: Icon(Icons.check), Navpop: true,),
+          ],
         ),
       ),
     );
