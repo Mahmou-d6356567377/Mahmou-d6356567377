@@ -1,59 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/Widgets/CustomButton.dart';
-import 'package:noteapp/Widgets/CustomTextField.dart';
-
-
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:noteapp/Cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../Tools/addnoteForm.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
-    
+
   @override
   Widget build(BuildContext context) {
-    return const  SingleChildScrollView(
-      child: AddNoteForm(),
-    );
-  }
-}
-
-class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({
-    super.key,
-  });
-
-  @override
-  State<AddNoteForm> createState() => _AddNoteFormState();
-}
-
-class _AddNoteFormState extends State<AddNoteForm> {
-  final GlobalKey<FormState> formkey =GlobalKey();
-  String? title , subtitle ;
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-       key: formkey,
-       autovalidateMode: AutovalidateMode.disabled ,
-      child: Column(
-        children: [ 
-         const  SizedBox(height: 15,),
-          CustomTextField(hint: 'title',onSaved: (value){
-           title = value;
-          },),
-          CustomTextField(hint: 'content', MaxLines: 5, onSaved: (value){
-            subtitle = value;
-          },),
-          CustomButton(onTap: (){
-             if(formkey.currentState!.validate()){
-              formkey.currentState!.save();
-             }else{
-              AutovalidateMode.disabled;
-              //this to do validate automatically without doing anything 
-
-             }
-          },),
-        ],
+    return  SingleChildScrollView(
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if(state is AddNoteFailure){
+            print('failed ${state.errMessage}');
+          const snackBar = SnackBar(
+            content: Text('There is something wrong in AddNoteBottomsheet '),
+);
+           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          }
+          if(state is AddNoteSuccess){
+               Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: (state is AddNoteLoading)? true:false,
+            child: const  AddNoteForm());
+        },
       ),
     );
   }
 }
-
- 
