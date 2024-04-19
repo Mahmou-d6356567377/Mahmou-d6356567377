@@ -5,9 +5,15 @@ sealed class NotesCubitState {}
 
 final class NotesCubitInitial extends NotesCubitState {}
 final class NotesCubitLoading extends NotesCubitState {}
-final class NotesCubitFailed extends NotesCubitState {}
-final class NotesCubitsuccessed extends NotesCubitState {
-  final String errMassage;
+final class NotesCubitFailed extends NotesCubitState {
+    final String errMassage;
 
-  NotesCubitsuccessed({required this.errMassage});
+  NotesCubitFailed( this.errMassage);
+
+}
+final class NotesCubitsuccessed extends NotesCubitState {
+   
+   final List<NoteModel> notes;
+
+  NotesCubitsuccessed( this.notes);
 }
