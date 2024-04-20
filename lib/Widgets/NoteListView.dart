@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/Cubits/notes_cubit/notes_cubit_cubit.dart';
+import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/Widgets/NoteItem.dart';
-
-
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NoteListView extends StatelessWidget {
   const NoteListView({
     super.key,
   });
 
-  final data= const [
-    Colors.greenAccent,
-    Colors.redAccent,
-    Colors.blueAccent,
-    Colors.pinkAccent,
-    Colors.orangeAccent,
-    Colors.yellowAccent,
-  ];
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-       scrollDirection: Axis.vertical,
-        itemCount: 20,
-      
-        itemBuilder: (BuildContext context, int index) {
-         int d = index;
-            final colorIndex = d % data.length;
-          return  NoteItem(color: data[colorIndex ],);
-        },
-      ),
+
+    List<NoteModel> notes =BlocProvider.of<NotesCubit>(context).notes??[];
+    return BlocBuilder<NotesCubit, NotesCubitState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+            scrollDirection: Axis.vertical,
+            itemCount: notes.length,
+            itemBuilder: (BuildContext context, int index) {
+
+              return NoteItem(
+              note:  notes[index],
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

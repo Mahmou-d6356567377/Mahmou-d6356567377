@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/Models/NoteModel.dart';
 import 'package:noteapp/Views/EditNoteView.dart';
 
 class NoteItem extends StatelessWidget {
-   NoteItem({super.key, required this.color});
-  
-   final Color color;
+    NoteItem({super.key,required this.note });
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,26 +17,26 @@ class NoteItem extends StatelessWidget {
           height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: color,
+            color: Color(note.color),
           ),
           child: Row(
             children: [ 
-              Expanded(
+               Expanded(
                 flex: 3,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 16),
+                  padding: const  EdgeInsets.only(left: 16),
                   child: SingleChildScrollView( 
                     child: Column(
                       children: [ 
                         ListTile(
-                          title: Text('Flutter tips',style: TextStyle(
+                          title: Text(note.title,style: const  TextStyle(
                             fontFamily: 'Poppins',
                           color: Colors.black,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),), 
-                        subtitle: Text('Build your careed with Mahmoud Ashraf ',style: TextStyle(
-                          color: Colors.black,
+                        subtitle: Text(note.content,style:  TextStyle(
+                          color: Colors.black.withOpacity(.4),
                           fontSize: 16,
                         ),),
                         )
@@ -51,14 +51,20 @@ class NoteItem extends StatelessWidget {
                 flex: 1,
                 child: Column(
                   children: [ 
-                    Spacer(flex: 1,),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.delete,
+                   const  Spacer(flex: 1,),
+
+                  IconButton(onPressed: (){}, icon:const  Icon(Icons.delete,
                   color: Colors.black,),),
-                  Spacer(flex: 3,),
-                    Text('May  21,2022',style: TextStyle(
-                      color: Colors.black,
-                    ),),
-                    Spacer(flex: 1,),
+
+                  const   Spacer(flex: 3,),
+
+                   Text(note.date,
+                    style:  TextStyle(
+                  color: Colors.black.withOpacity(.4),
+                    ),
+                    ),
+
+                   const  Spacer(flex: 1,),
                   ],
                 ),
               ),
