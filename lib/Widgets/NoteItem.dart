@@ -53,7 +53,11 @@ class NoteItem extends StatelessWidget {
                   children: [ 
                    const  Spacer(flex: 1,),
 
-                  IconButton(onPressed: (){}, icon:const  Icon(Icons.delete,
+                  IconButton(onPressed: (){
+                   note.delete();
+
+                  }, 
+                  icon:const  Icon(Icons.delete,
                   color: Colors.black,),),
 
                   const   Spacer(flex: 3,),
