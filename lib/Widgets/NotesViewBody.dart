@@ -22,11 +22,11 @@ class _NotesViewBodyState extends State<NotesViewBody> {
     
   }
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [ 
-        SizedBox(height: 20,),
-        CustomAppBar(title: 'Note', icon: Icon(Icons.search),),
-           Expanded(
+        const SizedBox(height: 20,),
+        CustomAppBar(title: 'Note', icon: const Icon(Icons.search),onPressed: (){},),
+         const   Expanded(
              child: NoteListView(),
            ),
       ],

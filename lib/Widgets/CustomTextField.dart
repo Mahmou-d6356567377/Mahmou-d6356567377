@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:noteapp/Constants/Constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key,required this.hint,  this.MaxLines=1, this.onSaved});
+  const CustomTextField({super.key,required this.hint,  this.MaxLines=1, this.onSaved , this.onChanged});
   final void Function(String?)? onSaved;
+  final void Function(String)? onChanged;
   final String hint;
   final int MaxLines;
   @override
@@ -11,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 12,),
       child: TextFormField(
+        onChanged: onChanged,
         onSaved: onSaved,
         validator: (value) {
           if(value?.isEmpty ?? true){

@@ -23,9 +23,11 @@ class AddNoteBottomSheet extends StatelessWidget {
           if (state is AddNoteSuccess) {
             BlocProvider.of<NotesCubit>(context).fetchallNotes();
             Navigator.pop(context);
+            
           }
         },
         builder: (context, state) {
+          
           return AbsorbPointer(
             absorbing:  state is AddNoteLoading ? true : false,
             child: Padding(

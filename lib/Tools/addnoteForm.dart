@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/Cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:noteapp/Models/NoteModel.dart';
 import 'package:intl/intl.dart';
+import 'package:noteapp/Widgets/ColorListView.dart';
 import '../Widgets/CustomButton.dart';
 import '../Widgets/CustomTextField.dart';
 
@@ -36,13 +37,18 @@ class _AddNoteFormState extends State<AddNoteForm> {
           CustomTextField(hint: 'content', MaxLines: 5, onSaved: (value){
             subtitle = value;
           },),
+
+          ColorsListView(),
           CustomButton(onTap: (){
+            
             print('Click on add button');
+
              if(formkey.currentState!.validate()){
-              formkey.currentState!.save();
-              var noteModel = NoteModel(title: title!, content: subtitle!, date: formattedDate, color: Colors.blueGrey.value);
-              BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+
+              fillNodeModel(formattedDate, context);
+
              }else{
+
               AutovalidateMode.disabled;
               //this to do validate automatically without doing anything 
 
@@ -52,6 +58,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
       ),
     );
   }
+
+  void fillNodeModel(String formattedDate, BuildContext context) {
+     formkey.currentState!.save();
+    var noteModel = NoteModel(title: title!, content: subtitle!, date: formattedDate, color: Colors.blueGrey.value);
+    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+  }
 }
 
- 
+

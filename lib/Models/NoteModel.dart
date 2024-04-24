@@ -6,13 +6,13 @@ import 'package:hive/hive.dart';
 
 class NoteModel extends HiveObject{
   @HiveField(0)
-  final String title;
+   String title;
     @HiveField(1)
- final String content;
+  String content;
   @HiveField(3)
   final String date;
     @HiveField(4)
-  final int color;
+   int color;
 
   NoteModel({required this.title, required this.content, required this.date, required this.color});
 }
