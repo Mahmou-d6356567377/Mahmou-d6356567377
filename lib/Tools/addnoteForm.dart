@@ -61,7 +61,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   void fillNodeModel(String formattedDate, BuildContext context) {
      formkey.currentState!.save();
-    var noteModel = NoteModel(title: title!, content: subtitle!, date: formattedDate, color: Colors.blueGrey.value);
+    var noteModel = NoteModel(title: title!, content: subtitle!, date: formattedDate, color: Colors.blue.value);
     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
   }
 }
