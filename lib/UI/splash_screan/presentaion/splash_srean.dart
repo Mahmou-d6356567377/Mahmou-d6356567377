@@ -1,27 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mybook/utils/constants.dart';
+import 'package:mybook/UI/splash_screan/presentaion/views/widgets/splash_view_body.dart';
 
-class SplashView extends StatelessWidget {
-  const SplashView({super.key});
+class SplashScrean extends StatelessWidget {
+  const SplashScrean({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration:  const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(backgroundColor6),
-               Color(backgroundColor8),
-              Color(backgroundColor9),
-              Color(backgroundColor11),
-            
-            ]
-          ),
-        ),
-      ),
-    );
+    return const SplashViewBody();
   }
 }

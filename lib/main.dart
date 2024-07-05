@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mybook/UI/splash_screan/presentaion/splash_srean.dart';
+import 'package:mybook/utils/constants.dart';
+import 'package:mybook/utils/routes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -23,7 +24,13 @@ class MyApp extends StatelessWidget {
   
   Widget build(BuildContext context) {
   
-    return const MaterialApp(
-      home: SplashView());
+    return  MaterialApp.router(
+      theme:  ThemeData(
+        primaryColor: Colors.white,
+       scaffoldBackgroundColor:  const Color(backgroundColor0)),
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRoutes.approutes,
+      
+    );
   }
 }
