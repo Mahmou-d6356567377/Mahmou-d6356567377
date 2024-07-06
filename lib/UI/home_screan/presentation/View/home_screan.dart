@@ -21,7 +21,7 @@ class HomeScrean extends StatelessWidget {
           const   SliverToBoxAdapter(child:  CustomAppBar(),), 
           const  SliverToBoxAdapter(child: SizedBox( height: 200, child:  BookListView(),) ,), 
           SliverToBoxAdapter(child: Row(children: [Text('  NEWEST BOOKS', style: style14.copyWith( fontFamily: 'Po' ),), ], ),), 
-          const SliverToBoxAdapter(child: Expanded(child:  NewestBookList(isScroll: true)) ,),
+          const SliverToBoxAdapter(child:  NewestBookList(isScroll: true) ,),
           ],
         ), 
       ),
