@@ -41,10 +41,10 @@ class _SplashViewState extends State<SplashViewBody> with SingleTickerProviderSt
 
   void slidingAnimation (){
     animcontroller = AnimationController(vsync: this, 
-    duration:  const Duration(seconds: 1),
+    duration:  const Duration(milliseconds: 700),
 
     );
-    animationSlidercontroller = Tween<Offset>(begin: const Offset(0 , 10), end: Offset.zero).animate(animcontroller);
+    animationSlidercontroller = Tween<Offset>(begin: const Offset(0 , 9), end: Offset.zero).animate(animcontroller);
     animcontroller.forward();
   }
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class _SplashViewState extends State<SplashViewBody> with SingleTickerProviderSt
                SlideTransition(
                position: animationSlidercontroller,
                  child: Text('Read as you are in heaven 😊', 
-                               style: style14.copyWith(color: const Color(backgroundColor6)),
+                 style: style14.copyWith(color: const Color(backgroundColor6)),
                  ),
                ),
           ],
