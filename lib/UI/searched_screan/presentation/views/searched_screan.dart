@@ -7,20 +7,20 @@ class SearchedScrean extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-
+    return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            backgroundColor:  const Color.fromARGB(255, 21, 61, 86),
+            backgroundColor: const Color.fromARGB(255, 21, 61, 86),
             //floating: true,
             expandedHeight: 180,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(KlogoImage),
             ),
-          
           ),
-         const  SliverToBoxAdapter(child: NewestBookList(isScroll: true),)
+          const SliverToBoxAdapter(
+            child: NewestBookList(isScroll: true),
+          )
         ],
       ),
     );

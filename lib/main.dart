@@ -21,16 +21,13 @@ class MyApp extends StatelessWidget {
   });
 
   @override
-  
   Widget build(BuildContext context) {
-  
-    return  MaterialApp.router(
-      theme:  ThemeData(
-        primaryColor: Colors.white,
-       scaffoldBackgroundColor:  const Color(backgroundColor0)),
+    return MaterialApp.router(
+      theme: ThemeData(
+          primaryColor: Colors.white,
+          scaffoldBackgroundColor: const Color(backgroundColor0)),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRoutes.approutes,
-      
     );
   }
 }

@@ -9,14 +9,17 @@ class BookListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRoutes.BD);
       },
       child: ClipRRect(
         child: SizedBox(
-          height: 150,
-          width: 150,
-          child: Image.asset(KtestImage, fit: BoxFit.fill,)),
+            height: 150,
+            width: 150,
+            child: Image.asset(
+              KtestImage,
+              fit: BoxFit.fill,
+            )),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:mybook/UI/home_screan/domain/repo/home_repo.dart';
 
@@ -10,13 +9,9 @@ class fetchFeaturedBookUseCase extends UseCase<List<BookEntity>, void> {
   final HomeRepo homerepo;
 
   fetchFeaturedBookUseCase({required this.homerepo});
-  
+
   @override
   Future<Either<Failure, List<BookEntity>>> call([void param]) async {
     return await homerepo.fetchFeaturedBook();
   }
-
- 
-
 }
-

@@ -13,17 +13,21 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        color: const  Color(backgroundColor0),
-        child: Row( 
-          children: [ 
-             Image.asset(KlogoImage,   width: 100,  // Adjust the width as needed
-                  ),
-          const Spacer(),
-          IconButton(
-              onPressed: (){
-                GoRouter.of(context).push(AppRoutes.ss);
-              },
-             icon: const Icon(Icons.search, color: Colors.white,)),
+        color: const Color(backgroundColor0),
+        child: Row(
+          children: [
+            Image.asset(
+              KlogoImage, width: 100, // Adjust the width as needed
+            ),
+            const Spacer(),
+            IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRoutes.ss);
+                },
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.white,
+                )),
           ],
         ),
       ),

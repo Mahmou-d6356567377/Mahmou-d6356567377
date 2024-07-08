@@ -8,16 +8,23 @@ class RatingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Row( 
-      children: [ 
-           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-                   child: Icon(FontAwesomeIcons.star, color: Color.fromARGB(255, 217, 192, 47),),
-                     ),
-
-                     Text('3',style: style12,),
-                     Text('(2322)',style: style12,),
-                     
+    return const Row(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
+          child: Icon(
+            FontAwesomeIcons.star,
+            color: Color.fromARGB(255, 217, 192, 47),
+          ),
+        ),
+        Text(
+          '3',
+          style: style12,
+        ),
+        Text(
+          '(2322)',
+          style: style12,
+        ),
       ],
     );
   }
