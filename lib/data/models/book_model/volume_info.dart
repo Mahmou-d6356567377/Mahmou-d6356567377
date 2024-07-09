@@ -24,7 +24,7 @@ class VolumeInfo {
   String? infoLink;
   String? canonicalVolumeLink;
 
-  VolumeInfo({
+  VolumeInfo({  
     this.title,
     this.authors,
     this.publisher,
