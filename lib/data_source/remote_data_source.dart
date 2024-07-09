@@ -4,13 +4,13 @@ import 'package:mybook/Core/API/api_service.dart';
 import 'package:mybook/UI/home_screan/domain/entities/book_entity.dart';
 import 'package:mybook/data/models/book_model/book_model.dart';
 
-abstract class HomeRemoteDataSource {
+abstract class RemoteDataSource {
     Future< List<BookEntity>> fetchFeaturedBook();
 
    Future< List<BookEntity>> fetchNewestBooks();
 }
 
- class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
+ class HomeRemoteDataSourceImpl extends RemoteDataSource{
 
   final ApiService apiservice;
 
